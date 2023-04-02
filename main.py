@@ -16,18 +16,14 @@ def write_responses(result):
 
 def process_queries(queries):
     result = []
-    # Keep list of all existing (i.e. not deleted yet) contacts.
     contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
             contacts[cur_query.number] = cur.query.name
         elif cur_query.type == 'del':
-            # if we already have contact with such number,
-            # we should rewrite contact's name
             if cur_query.number in contacts:
                 del contacts[cur_query.number]
         else:
-
             response = contacts.get(cur_query.number, 'not found')
             result.append(response)
     return result
