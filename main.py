@@ -1,4 +1,5 @@
 # python3
+# Viviāna Ščerbakova 3.grupa 221RDB309
 
 class Query:
     def __init__(self, query):
